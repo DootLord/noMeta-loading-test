@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 const httpsServer = https.createServer(certs, app);
 
-httpsServer.listen(443, () => {
+httpsServer.listen(443, (err) => {
   if (err) {
     console.error('Failed to start HTTPS Server:', err);
   } else {
