@@ -7,7 +7,7 @@ const path = require('path');
 const app = express();
 const certs = {
   key: fs.readFileSync('/etc/letsencrypt/live/dootlord.meme/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/dootlord.meme/fullchain.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/dootlord.meme/cert.pem'),
   ca: fs.readFileSync('/etc/letsencrypt/live/dootlord.meme/chain.pem')
 }
 
