@@ -10,9 +10,15 @@ const certs = {
   cert: fs.readFileSync('/etc/letsencrypt/live/dootlord.meme/cert.pem')
 }
 
-app.use(express.static(path.join(__dirname, 'static')));
+// app.use(express.static(path.join(__dirname, 'static')));
+
+app.get("/", (req, res) => {
+  res.send("ayo whats up man");
+});
 
 const httpsServer = https.createServer(certs, app);
+
+
 
 httpsServer.listen(443, (err) => {
   if (err) {
