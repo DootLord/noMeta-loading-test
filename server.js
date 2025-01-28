@@ -11,7 +11,9 @@ const certs = {
 
 app.use(express.static(path.join(__dirname, 'static')));
 
-https.createServer(certs, app).listen(80, () => {
-  console.log('Server started on https://localhost:80');
+const httpsServer = https.createServer(certs, app);
+
+httpsServer.listen(443, () => {
+  console.log('HTTPS Server running on port 80');
 });
 
