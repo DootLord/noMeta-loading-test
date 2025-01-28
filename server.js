@@ -1,11 +1,17 @@
+const fs = require('fs');
+const https = require('https');
+
 const express = require('express');
 const path = require('path');
-
 const app = express();
-const port = 80;
+const certs = {
+  key: fs.readFileSync('/etc/letsencrypt/live/dootlord.meme/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/dootlord.meme/fullchain.pem')
+}
 
 app.use(express.static(path.join(__dirname, 'static')));
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+https.createServer(certs, app).listen(80, () => {
+  console.log('Server started on https://localhost:80');
 });
+
