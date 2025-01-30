@@ -13,7 +13,7 @@ const certs = {
 app.use(express.static(path.join(__dirname, 'static')));
 
 app.get("/nometa", (req, res) => {
-  res.sendFile(path.join(__dirname, 'static', './static/nometa.html'));
+  res.sendFile(path.join(__dirname, 'static', './nometa.html'));
 });
 
 const httpsServer = https.createServer(certs, app);
